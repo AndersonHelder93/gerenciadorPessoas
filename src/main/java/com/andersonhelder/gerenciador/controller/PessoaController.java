@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.andersonhelder.gerenciador.dto.EnderecoPrincipalDTO;
 import com.andersonhelder.gerenciador.models.Pessoa;
 import com.andersonhelder.gerenciador.service.PessoaService;
 
@@ -45,5 +46,10 @@ public class PessoaController {
 	public Pessoa editar(@PathVariable long id, @RequestBody Pessoa npessoa){
 		return pessoaService.editarPessoa(id, npessoa);
 		
+	}
+	
+	@PutMapping(value = "/inserir/enderecoprincipal")
+	public Pessoa salvarEndereco(@RequestBody EnderecoPrincipalDTO endereco) {
+		return pessoaService.salvarEnderecoPrincipal(endereco);
 	}
 }

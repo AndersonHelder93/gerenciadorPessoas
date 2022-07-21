@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 //@Table(name = "TB_PESSOA")
@@ -23,6 +24,9 @@ public class Pessoa implements Serializable {
 	private String nome;
 
 	private String dataNascimento;
+	
+	@OneToOne
+	private Endereco enderecoPrincipal;
 
 	@OneToMany(mappedBy = "pessoa")
 	private List<Endereco> endereco = new ArrayList<>();
@@ -37,6 +41,15 @@ public class Pessoa implements Serializable {
 		this.dataNascimento = dataNascimento;
 	}
 
+	
+
+	public Endereco getEnderecoPrincipal() {
+		return enderecoPrincipal;
+	}
+
+	public void setEnderecoPrincipal(Endereco enderecoPrincipal) {
+		this.enderecoPrincipal = enderecoPrincipal;
+	}
 
 	public Long getId() {
 		return id;

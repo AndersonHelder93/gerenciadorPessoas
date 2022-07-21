@@ -28,13 +28,15 @@ public class EnderecoController {
 		return ResponseEntity.ok().body(endereco);
 	}
 	
-	@GetMapping(value="/pessoaenderecos")
-	public ResponseEntity<List<Endereco>> buscarEnderecosPessoas(){
-		return ResponseEntity.ok().body(enderecoService.listarEnderecoPessoas());
+	@GetMapping(value="/pessoaenderecos/{id}")
+	public ResponseEntity<List<Endereco>> buscarEnderecosPessoas(@PathVariable long id){
+		return ResponseEntity.ok().body(enderecoService.listarEnderecoPessoas(id));
 	}
 	
 	@PostMapping(value = "/inserir/endereco")
 	public Endereco salvarEndereco(@RequestBody EnderecoDTO endereco) {
 		return enderecoService.salvarEndereco(endereco);
 	}
+	
+	
 }

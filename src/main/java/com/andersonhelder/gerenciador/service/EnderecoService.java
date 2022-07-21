@@ -25,8 +25,9 @@ public class EnderecoService {
 		return endereco;
 	}
 
-	public List<Endereco> listarEnderecoPessoas() {
-		return enderecoRepository.findAll();
+	public List<Endereco> listarEnderecoPessoas(Long id) {
+		Pessoa pessoa2 = pessoaService.buscarPorId(id);
+		return enderecoRepository.findByPessoa(pessoa2);
 	}
 
 	public Endereco salvarEndereco(@RequestBody EnderecoDTO endereco) {
@@ -44,4 +45,5 @@ public class EnderecoService {
 		}
 		return enderecoRepository.save(endereco2);
 	}
+	
 }
