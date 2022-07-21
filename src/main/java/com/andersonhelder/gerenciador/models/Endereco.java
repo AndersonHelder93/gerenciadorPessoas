@@ -1,37 +1,63 @@
 package com.andersonhelder.gerenciador.models;
 
-import javax.persistence.Column;
+import java.io.Serializable;
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "TB_ENDERCO")
-public class Endereco {
+//@Table(name = "TB_ENDERCO")
+public class Endereco implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "endereco_id")
 	private Long id;
 
 	private String logradouro;
 
 	private int cep;
 
-	@ManyToOne
+	private int numero;
+
+	private String cidade;
+
+	@ManyToOne()
+	/*@JoinTable(name="TB_PESSOAENDERECO",
+	   joinColumns={@JoinColumn(name="ID_ENDERECO")},
+	   inverseJoinColumns={@JoinColumn(name="ID_PESSOA")})*/
 	@JoinColumn(name = "pessoa_id")
 	private Pessoa pessoa;
 
-	public Endereco(Long id, String logradouro, int cep, Pessoa pessoa) {
+	public Endereco() {
+	}
+
+	public Endereco(Long id, String logradouro, int cep) {
 		super();
 		this.id = id;
 		this.logradouro = logradouro;
 		this.cep = cep;
-		this.pessoa = pessoa;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 	public Long getId() {
@@ -66,5 +92,21 @@ public class Endereco {
 		this.pessoa = pessoa;
 	}
 
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Endereco other = (Endereco) obj;
+		return Objects.equals(id, other.id);
+	}
+
 }
