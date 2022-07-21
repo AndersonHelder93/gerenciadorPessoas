@@ -28,9 +28,6 @@ public class Endereco implements Serializable {
 	private String cidade;
 
 	@ManyToOne()
-	/*@JoinTable(name="TB_PESSOAENDERECO",
-	   joinColumns={@JoinColumn(name="ID_ENDERECO")},
-	   inverseJoinColumns={@JoinColumn(name="ID_PESSOA")})*/
 	@JoinColumn(name = "pessoa_id")
 	private Pessoa pessoa;
 
