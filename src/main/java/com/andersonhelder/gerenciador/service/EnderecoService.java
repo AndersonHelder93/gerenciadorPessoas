@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.andersonhelder.gerenciador.dto.EnderecoDTO;
+import com.andersonhelder.gerenciador.dto.enderecos.EnderecoDTO;
 import com.andersonhelder.gerenciador.models.Endereco;
 import com.andersonhelder.gerenciador.models.Pessoa;
 import com.andersonhelder.gerenciador.repository.EnderecoRepository;

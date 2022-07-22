@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.andersonhelder.gerenciador.dto.EnderecoDTO;
+import com.andersonhelder.gerenciador.dto.enderecos.EnderecoDTO;
 import com.andersonhelder.gerenciador.models.Endereco;
 import com.andersonhelder.gerenciador.service.EnderecoService;
 
@@ -28,14 +28,14 @@ public class EnderecoController {
 	@Autowired
 	private EnderecoService enderecoService;
 	
-	@ApiOperation(value="Retorno de um endereco por id")
+	@ApiOperation(value="Retorno de um endereco")
 	@GetMapping(value="/endereco/{id}")
 	public ResponseEntity<Endereco> buscarEnderecoPorId(@PathVariable long id){
 		Endereco endereco = enderecoService.buscarEnderecoPorId(id);
 		return ResponseEntity.ok().body(endereco);
 	}
 	
-	@ApiOperation(value="Retorno de uma lista da pessoa com seus respectivos enderecos")
+	@ApiOperation(value="Retorno de todos os enderecos cadastrados de uma pessoa")
 	@GetMapping(value="/pessoaenderecos/{id}")
 	public ResponseEntity<List<Endereco>> buscarEnderecosPessoas(@PathVariable long id){
 		return ResponseEntity.ok().body(enderecoService.listarEnderecoPessoas(id));

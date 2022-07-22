@@ -1,4 +1,4 @@
-package com.andersonhelder.gerenciador.dto;
+package com.andersonhelder.gerenciador.dto.enderecos;
 
 public class EnderecoDTO {
 	

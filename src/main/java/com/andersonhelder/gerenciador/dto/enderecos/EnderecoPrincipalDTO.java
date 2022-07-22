@@ -1,4 +1,4 @@
-package com.andersonhelder.gerenciador.dto;
+package com.andersonhelder.gerenciador.dto.enderecos;
 
 import javax.validation.constraints.NotNull;
 
