@@ -2,8 +2,6 @@ package com.andersonhelder.gerenciador.controller;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,19 +34,18 @@ public class PessoaController {
 		return ResponseEntity.ok().body(pessoaService.listarPessoas());
 	}
 
-	@PostMapping(value = "/inserir/pessoa")
+	@PostMapping(value = "/pessoa")
 	public Pessoa salvarPessoa(@RequestBody Pessoa pessoa) {
 		return pessoaService.salvarPessoa(pessoa);
 	}
 	
 	@PutMapping(value = "/pessoa/{id}")
-	@Transactional
 	public Pessoa editar(@PathVariable long id, @RequestBody Pessoa npessoa){
 		return pessoaService.editarPessoa(id, npessoa);
 		
 	}
 	
-	@PutMapping(value = "/inserir/enderecoprincipal")
+	@PutMapping(value = "/enderecoprincipal")
 	public Pessoa salvarEndereco(@RequestBody EnderecoPrincipalDTO endereco) {
 		return pessoaService.salvarEnderecoPrincipal(endereco);
 	}

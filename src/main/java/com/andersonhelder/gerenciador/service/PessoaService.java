@@ -33,14 +33,14 @@ public class PessoaService {
 		return pessoaRepository.save(pessoa);
 	}
 
-	public Pessoa editarPessoa( long id, Pessoa npessoa) {
+	public Pessoa editarPessoa(long id, Pessoa npessoa) {
 		Pessoa data = pessoaRepository.findById(id);
 		if (data == null) {
 			return null;
 		}
 		data.setNome(npessoa.getNome());
 		data.setDataNascimento(npessoa.getDataNascimento());
-		return salvarPessoa(npessoa);
+		return salvarPessoa(data);
 
 	}
 	
