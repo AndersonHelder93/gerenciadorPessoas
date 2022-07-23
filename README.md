@@ -13,10 +13,10 @@
 - Instruções de Instalação e uso:
       Baixe o código do repositório;
       
-      Importe o código na IDE que você preferir , de preferência o eclipse;
+      Importe o código na IDE que você preferir, de preferência o eclipse;
       
       Execute a API a partir do arquivo (GerenciarPessoasApplication.java), clicando com o botão direito
-      e selecionando a opção run application, ou da forma que você se adequar na sua IDE;
+      e selecionando a opção "run application", ou da forma que você se adequar na sua IDE;
       
       A API pode ser testada de 2 formas:  
       pelo navegador com o endpoint: http://localhost:8080/swagger-ui/index.html;
@@ -25,12 +25,12 @@
           
  - Testando pelo postman:
       
-        O fluxo de teste da aplicação será da seguinte forma respectivamente:
+        O fluxo de teste da aplicação será da seguinte forma, respectivamente:
           cadastrar a pessoa;
           cadastrar o endereço;
 	      cadastrar o endereço principal em uma pessoa previamente cadastrada;   
 	      listar pessoas, endereços, pessoas com seus endereços cadastrados e com o endereço principal;
-       OBS: Cada etapa do fluxo terá um endpoint especifico para executar de forma isolada em cada processo de execução.
+       OBS: Cada etapa do fluxo terá um endpoint específico para executar de forma isolada em cada processo de execução.
        
        Abra o programa, crie uma nova guia e insira o seguinte endpoint para cadastrar uma pessoa:
           localhost:8080/api/pessoa
@@ -60,7 +60,7 @@
 	          retornará os dados cadastrados com o campo id com o valor preenchido, observe que o campo "pessoa_id"
 	          está com o mesmo valor do id do array anterior, fazendo assim a associação do endereço com a pessoa
 	          anteriormente cadastrada, caso esse valor não seja preenchido, o endereço não será associado a pessoa.
-        OBS: Pode inserir o logradouro, cep, número e os demais campos de sua preferencia, desde que seja do mesmo tipo;
+        OBS: Pode inserir o logradouro, cep, número e os demais campos de sua preferência, desde que seja do mesmo tipo;
            Pode inserir quantos endereços você preferir.
 
         Crie uma nova guia e insira o seguinte endpoint para listar um endereço associado a pessoa cadastrada:
